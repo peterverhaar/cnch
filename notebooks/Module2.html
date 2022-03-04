@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2 &#8212; Python Tutorial</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Welcome" href="../Welcome.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python Tutorial</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Module 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Module2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cdsleiden/python-tutorial/gh-pages?urlpath=tree/docs/notebooks/Module2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-2">
+<h1>Module 2<a class="headerlink" href="#module-2" title="Permalink to this headline">¶</a></h1>
+<p><strong>Linked Open Data</strong>
+<strong>Module 2: Creating and publishing Linked Open Data</strong>
+<strong>Level: Medium</strong></p>
+<p><strong>Learning objectives:</strong></p>
+<ul class="simple">
+<li><p>Introduction to the creation and publication of Linked Open Data (LOD) on the Web</p></li>
+<li><p>Learning how to use the LDwizard and CLARIAH Data Legend Tool ‘Cow’.</p></li>
+</ul>
+<p>**Vocabularies **</p>
+<p>[Text]</p>
+<p><strong>Publishing Linked Open data</strong></p>
+<p>The data that are made available by cultural heritage institutions can be very heterogenous. Institutions may use a wide variety of formats, including relational databases, CSV, XML documents or JSON. If the data is in one of these formats, it can be useful to convert these data sets into RDF first. When the data is available as Linked Data, it eventually becomes much easier to reuse the data and to integrate the data into other data collections.</p>
+<p>To convert a given data set into the RDF format, we can follow the steps below:</p>
+<p>(1).</p>
+<p>Create a conceptual model of the original data set.</p>
+<p>In other words, make a clear and comprehensive list of all the entities and the properties of these entities that are described. You may describe this model in a simple text file, in which you enumerate these various properties. If you work with a single CSV file, listing all the column names specified in the header of the CSV file is usually sufficient. In the case of more complex databases, you may also make use of a more formal notation technique, such as an Entity Relationship Diagram.</p>
+<p>(2)
+Find appropriate URIs for all the entities and the properties in the model. You can use URIs in the following vocabularies:</p>
+<p><a class="reference external" href="http://Schema.org">Schema.org</a></p>
+<p>DCterms</p>
+<p>FOAF</p>
+<p>(3)</p>
+<p>Try to produce a system for assigning unique identifiers for the individual items that are described in your dataset. If your CSV has row numbers, for example, you may choose to work with these row numbers as identifiers for the objects.</p>
+<p>(4)</p>
+<p>Following these three preparatory steps, you can begin to transform the dataset. The procedure is essentially that each value in the original data set (e.g. a single cell in a spreadsheet) will become a separate triple. The identifier that you have assigned to the row (according to step 3) should become the subject. The URI of the property you associated with the column this value is in should be used as a predicate. The value itself will become an object. This value may be either a literal or a URI. The conversion can be carried out using tools such as COW or LDWizard.</p>
+<p>This general process will be demonstrated using a very simple CSV file, consisting of four rows only.</p>
+<p>ID,title,author,year_of_publication,publisher</p>
+<p>1,Brave New World,Aldous Huxley,1932,English, Chatto &amp; Windus</p>
+<p>2,1984,George Orwell,1949,English,Secker &amp; Warburg</p>
+<p>3,Madame Bovary,Gustave Flaubert,1856,French,Michel Lévy Frères</p>
+<p>4,Im Westen nichts Neues,Erich Maria Remarque,1929,German,Propyläen Verlag</p>
+<p>As explained above, it is necessary first to describe the underlying structure or the conceptual model of the data. In this example, such a description can be produced easily, as the lists of properties can be copied directly to the header of the CSV file.</p>
+<p>ENTITY: BOOK</p>
+<p>PROPERTIES:</p>
+<p>Key</p>
+<p>Title</p>
+<p>Author</p>
+<p>Year_of_publication</p>
+<p>Publisher</p>
+<p>Once you have developed a sufficiently clear understanding of the model, you can begin to link the various properties that you have identified to URI. During this specific search, you can make use of Linked Open Vocabularies website. On this site, you can type in a property in the search bar at the top. This online application will then attempt to find matching terms. Using this website, we can find the following URIs for the colum names in our sample data set.</p>
+<p>BOOK</p>
+<p><a class="reference external" href="http://purl.org/dc/terms/BibliographicResource">http://purl.org/dc/terms/BibliographicResource</a></p>
+<p>Title</p>
+<p><a class="reference external" href="http://purl.org/dc/terms/title">http://purl.org/dc/terms/title</a></p>
+<p>Author</p>
+<p><a class="reference external" href="https://schema.org/author">https://schema.org/author</a></p>
+<p>Year of publication</p>
+<p><a class="reference external" href="http://purl.org/dc/terms/date">http://purl.org/dc/terms/date</a></p>
+<p>Language</p>
+<p><a class="reference external" href="http://purl.org/dc/terms/language">http://purl.org/dc/terms/language</a></p>
+<p>Publisher</p>
+<p><a class="reference external" href="http://purl.org/dc/terms/publisher">http://purl.org/dc/terms/publisher</a></p>
+<p>The association between “year of publication” and “dcterms:date” may be slightly questionable. The National Library of Germany has specified a more specific property “<a class="reference external" href="https://d-nb.info/standards/elementset/gnd#dateOfPublication">dateOfPublication</a>”. In his situation, we have have following some conventions in this area. Libraries often describe the year of publication using “dcterms:date”.</p>
+<p>The column named “ID” will not be connected to a URI, as this columns will be used to identify the records.</p>
+<p>As identifiers for the individual books, we shall use the numbers given in the ID column of the CSV file.</p>
+<p>We are now ready to convert the CSV file. This tutorial will explain two tools: COW and LDWizard.</p>
+<p>Converting CSV file to RDF using LDWizards</p>
+<ol class="simple">
+<li><p>Open LDWizard via <a class="reference external" href="https://ldwizard.netwerkdigitaalerfgoed.nl/#1">https://ldwizard.netwerkdigitaalerfgoed.nl/#1</a></p></li>
+<li><p>Upload your CSV file.</p></li>
+<li><p>Under “Key column”, how the various records in the data set ought to be identified. You can select one of the existing columns for this purpose. If none of the columns are suitable, you can also select the row number. In our example, we select the column named “ID”</p></li>
+<li><p>Under Resource class IRI, specify the type of reources that are being described in the data set. Note that you can also search for terms in the LDWizard. If you type in a term, the tool will suggest a number of valid suggestions. In this example, we select “<a class="reference external" href="http://purl.org/dc/terms/BibliographicResource">http://purl.org/dc/terms/BibliographicResource</a>”</p></li>
+<li><p>Supply a base URI under “Advanced” [This needs to be explained further]</p></li>
+<li><p>For each of the columns in your dataset, indicate the URI they should be connected to. You can copy and paste the URIs you found yourself, or you can make use of the pull-down menu provided by the LDWizard tool.</p></li>
+<li><p>When you have associated all the column named with URI, you can click on “Next”. On the page that opens after this, you can download the result as RDF. The RDF file will be saved as a file with the .nt extention. This RDF can be uploaded to a Triple Store.</p></li>
+</ol>
+<p>For this simple CSV file, the result looks as follows:</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/title&amp;gt">http://purl.org/dc/terms/title&amp;gt</a> “Brave New World” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt</a> &amp;lt;<a class="reference external" href="https://schema.org/author&amp;gt">https://schema.org/author&amp;gt</a> “Aldous Huxley” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/date&amp;gt">http://purl.org/dc/terms/date&amp;gt</a> “1932” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/publisher&amp;gt">http://purl.org/dc/terms/publisher&amp;gt</a> “English” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/1&amp;gt</a> &amp;lt;<a class="reference external" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type%3E">http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/BibliographicResource&amp;gt">http://purl.org/dc/terms/BibliographicResource&amp;gt</a> .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/title&amp;gt">http://purl.org/dc/terms/title&amp;gt</a> “1984” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt</a> &amp;lt;<a class="reference external" href="https://schema.org/author&amp;gt">https://schema.org/author&amp;gt</a> “George Orwell” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/date&amp;gt">http://purl.org/dc/terms/date&amp;gt</a> “1949” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/publisher&amp;gt">http://purl.org/dc/terms/publisher&amp;gt</a> “English” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/2&amp;gt</a> &amp;lt;<a class="reference external" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type%3E">http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/BibliographicResource&amp;gt">http://purl.org/dc/terms/BibliographicResource&amp;gt</a> .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/title&amp;gt">http://purl.org/dc/terms/title&amp;gt</a> “Madame Bovary” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt</a> &amp;lt;<a class="reference external" href="https://schema.org/author&amp;gt">https://schema.org/author&amp;gt</a> “Gustave Flaubert” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/date&amp;gt">http://purl.org/dc/terms/date&amp;gt</a> “1856” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/publisher&amp;gt">http://purl.org/dc/terms/publisher&amp;gt</a> “French” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/3&amp;gt</a> &amp;lt;<a class="reference external" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type%3E">http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/BibliographicResource&amp;gt">http://purl.org/dc/terms/BibliographicResource&amp;gt</a> .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/title&amp;gt">http://purl.org/dc/terms/title&amp;gt</a> “Im Westen nichts Neues” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt</a> &amp;lt;<a class="reference external" href="https://schema.org/author&amp;gt">https://schema.org/author&amp;gt</a> “Erich Maria Remarque” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/date&amp;gt">http://purl.org/dc/terms/date&amp;gt</a> “1929” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/publisher&amp;gt">http://purl.org/dc/terms/publisher&amp;gt</a> “German” .</p>
+<p>&amp;lt;<a class="reference external" href="https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt">https://bookandbye.universiteitleiden.nl/lod/id/4&amp;gt</a> &amp;lt;<a class="reference external" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type%3E">http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</a> &amp;lt;<a class="reference external" href="http://purl.org/dc/terms/BibliographicResource&amp;gt">http://purl.org/dc/terms/BibliographicResource&amp;gt</a> .</p>
+<p>#Converting CSV data using COW</p>
+<p>Assignment
+Uploaden van een dataset mbv LDWizards and COW</p>
+<ul class="simple">
+<li><p>Wiki data / RKD</p></li>
+<li><p>Europeana</p></li>
+<li><p>KB</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cdsleiden/python-tutorial",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Welcome.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peter Verhaar and Ben Companjen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
