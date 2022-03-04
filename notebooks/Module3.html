@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3: SPARQL queries &#8212; Python Tutorial</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Module 2" href="Module2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python Tutorial</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Module2.html">
+   Module 2
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Module 3: SPARQL queries
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Module3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cdsleiden/python-tutorial/gh-pages?urlpath=tree/docs/notebooks/Module3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-objectives">
+   Learning objectives:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rdf">
+   RDF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sparql">
+   SPARQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-and-where">
+   SELECT and WHERE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-variables">
+   Multiple variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limit">
+   LIMIT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#order">
+   ORDER
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-3-sparql-queries">
+<h1>Module 3: SPARQL queries<a class="headerlink" href="#module-3-sparql-queries" title="Permalink to this headline">¶</a></h1>
+<p><strong>Level: Advanced (300)</strong></p>
+<div class="section" id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The basic syntax of a SPARQL query.</p></li>
+<li><p>How data is queried on the Web (using SPARQL)</p></li>
+</ul>
+<p>SPARQL (pronounced “sparkle”) is the query language for the Semantic Web. The name of the standard is an acronym which stands for <em>SPARQL Protocol and RDF Query Language</em>. Together with RDF , it is one of the three core technologies associated the Semantic Web. The language can be used to query data in RDF.</p>
+<p>To be able to retrieve and analyze Linked Open Data, you need to know how to build SPARQL queries. This is what you will learn within this module by looking at several sample queries, which you can also run in Jupyter Notebooks. You will also learn how to formulate SPARQL queries on Wikidata using the Wiki query service.</p>
+</div>
+<div class="section" id="rdf">
+<h2>RDF<a class="headerlink" href="#rdf" title="Permalink to this headline">¶</a></h2>
+<p>RDF statements, as you saw in the first lesson, consist of three components: <em>subjects</em>, <em>predicates</em> and <em>objects.</em> You can see an example of an RDF statement below:</p>
+<p>In this example, the base URI for <a class="reference external" href="http://schema.org">schema.org</a> is also replaced with a prefix. This was done to make the URI shorter and more manageable.</p>
+<p>The identifier that serves as the subject in this RDF statement (or triple) was assigned by the RKD (Netherlands Institute for Art History). The RDF triple gives information about one of the artists described in their digital archive. More specifically, it states that the entity specified by the identifier (&amp;lt;<a class="reference external" href="https://data.rkd.nl/artists/56854&amp;gt">https://data.rkd.nl/artists/56854&amp;gt</a>) has a name, namely “Piet Mondriaan”. The subject and the object of RDF triples can either be an URI or literal values. In the example above, the URIs are given in angular brackets, and the literals are given in quotes.</p>
+</div>
+<div class="section" id="sparql">
+<h2>SPARQL<a class="headerlink" href="#sparql" title="Permalink to this headline">¶</a></h2>
+<p>Now imagine a situation in which you have received a URI without any further context, such as &amp;lt;<a class="reference external" href="https://data.rkd.nl/artists/32439&amp;gt">https://data.rkd.nl/artists/32439&amp;gt</a>. The identifiers created for the artists in the RKD do not reveal any details about the people that are being identified. In this situation, you would want to know which artist is being identified. We can use SPARQL to find more information about such identifiers. The RDF triple (which reads like an affirmative statement) firstly needs to be transformed into a question. You can do this as follows.</p>
+<p>SPARQL queries are similar as regular RDF triples. A significant difference, however, is that certain components are replaced with variables. If you compare the query contained within the curly brackets following WHERE to the full RDF statement that was discussed earlier, you can see that the literal value that was used as a predicate (i.e., the actual name associated with the subject) has been replaced with a variable named ?name.</p>
+<p>You are free to choose the name of the variables yourself. In the SPARQL language, variables always start with a question mark. It is advisable to work with meaningful names, such as ?place for places or ?date for dates.</p>
+</div>
+<div class="section" id="select-and-where">
+<h2>SELECT and WHERE<a class="headerlink" href="#select-and-where" title="Permalink to this headline">¶</a></h2>
+<p>To change a sentence into an actual SPARQL query, you also need to add the keywords SELECT and WHERE. The curly brackets that follow WHERE, contain one or more ‘incomplete’ RDF statements, or statements in which one of the central components (subject, object, and predicate) are replaced with variables. In the example above, the request is to ‘fill in the blanks’, or, in other words, to find the correct value for the variable.</p>
+<p>In the SELECT clause, you specify the variables whose values you would like to see. In this example there is only one variable, namely, ?name. The SPARQL query will return a table. The number of columns will be the same as the number of variables you mention after SELECT. Each value that can be found to complete one of the RDF statements in the WHERE clause will be displayed will generate a new row in this table.</p>
+<p>If you run the query above in the RKD SPARQL endpoint, available at <a class="reference external" href="https://data.netwerkdigitaalerfgoed.nl/rkd/rkdartists/sparql/rkdartists">https://data.netwerkdigitaalerfgoed.nl/rkd/rkdartists/sparql/rkdartists</a>, the SPARQL engine will then try to complete the query. The values that are found are assigned to the variables. If everything goes well, you will see that the identifier that was supplied is associated with Vincent van Gogh.</p>
+<p>This is the basis of working with SPARQL.</p>
+</div>
+<div class="section" id="multiple-variables">
+<h2>Multiple variables<a class="headerlink" href="#multiple-variables" title="Permalink to this headline">¶</a></h2>
+<p>If you want to see more details for a specific identifier, you can simply add more RDF statements containing variables in the WHERE clause. According to the rules of the SPARQL syntax, each individual RDF triple needs to end in a full stop.</p>
+<p>This query requests the name, the gender and the birth date of the artist identified by the URI that is mentioned. The variable ?date_birth is slightly confusing at first sight. The property rkdo:Birth initially returns a rkdo:Birth resource. This is a general resource that can describe the details of a specific birth. Such a birth event can be described using a schema:startDate property. To find the actual birth date of Vincent van Gogh in the RKD database, you need to work with these two separate queries.</p>
+</div>
+<div class="section" id="limit">
+<h2>LIMIT<a class="headerlink" href="#limit" title="Permalink to this headline">¶</a></h2>
+<p>Following the principles that have been discussed so far, you can start to build more complicated queries, or queries that produce longer result lists.</p>
+<p>The query below, for example, requests the name and the gender of all the artists that are described in the RKD database. It firstly creates a variable named ?id, which represents all the identifiers that are assigned to people. In this example, the SPARQL endpoint will be able to find many potential matches for the ?id variable. For each of the identifiers, it tries to obtain the name and the gender.</p>
+<p>As you can imagine, this query would return an extensive list of results. When the result consists of several hundreds of items, it may take some time to load. SPARQL endpoints may also produce time-out errors in the case of such long lists of results. To avoid such errors, we can work with the LIMIT keyword, which needs to be followed by a number. Adding such a LIMIT section will have the fact that the length of the result list will not exceed the number that is specified.</p>
+<p>FILTER</p>
+<p>You can add a FILTER clause to add some criteria for the results to be displayed. If you do not want to see all the artists, but only those artists that were born in a specific decade (in between 1890 and 1900, for example), you can filter the original result set. The FILTER keyword is followed by a set or parenthesis. Within these parentheses you can add Boolean expressions which define criteria for the variables you work with. To see the artists who were born in the last decade of the 19th century, you can work with the query below.</p>
+<p>PREFIX rkdo: &amp;lt;<a class="reference external" href="http://data.rkd.nl/def#%3E">http://data.rkd.nl/def#&gt;</a></p>
+<p>PREFIX schema: &amp;lt;<a class="reference external" href="http://schema.org/&amp;gt">http://schema.org/&amp;gt</a></p>
+<p>SELECT ?id ?name ?gender ?date_birth</p>
+<p>WHERE {</p>
+<p>?id a schema:Person .</p>
+<p>?id schema:name ?name .</p>
+<p>?id schema:gender ?gender .</p>
+<p>?id rkdo:Birth ?birth .</p>
+<p>?birth schema:startDate ?date_birth .</p>
+<p>FILTER ( ?date_birth &amp;gt;= “1890-01-01”^^xsd:date &amp;&amp; ?date_birth &amp;lt; “1900-01-01”^^xsd:date)</p>
+<p>}</p>
+</div>
+<div class="section" id="order">
+<h2>ORDER<a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h2>
+<p>The ORDER keyword can be used to arrange the query results. ORDER needs to be included in the query after the closing bracket following WHERE. After ORDER, you can refer to any of the variables you have defined.</p>
+<p>PREFIX rkdo: &amp;lt;<a class="reference external" href="http://data.rkd.nl/def#%3E">http://data.rkd.nl/def#&gt;</a></p>
+<p>PREFIX xsd: &amp;lt;<a class="reference external" href="http://www.w3.org/2001/XMLSchema#%3E">http://www.w3.org/2001/XMLSchema#&gt;</a></p>
+<p>PREFIX schema: &amp;lt;<a class="reference external" href="http://schema.org/&amp;gt">http://schema.org/&amp;gt</a></p>
+<p>SELECT ?id ?name ?gender ?date_birth</p>
+<p>WHERE {</p>
+<p>?id a schema:Person .</p>
+<p>?id schema:name ?name .</p>
+<p>?id schema:gender ?gender .</p>
+<p>?id rkdo:Birth ?birth .</p>
+<p>?birth schema:startDate ?date_birth .</p>
+<p>FILTER ( ?date_birth &amp;gt;= “1890-01-01”^^xsd:date &amp;&amp; ?date_birth &amp;lt; “1900-01-01”^^xsd:date)</p>
+<p>}</p>
+<p>ORDER BY ?name</p>
+<p><strong>Wikidata</strong></p>
+<p>Wikidata offers access to many of the facts that are listed on Wikipedia as RDF triplets. In other words, Wikidata presents the contents of Wikipedia as structured data. WikiData’s SPARQL Endpoint can be found at <a class="reference external" href="https://query.wikidata.org/sparql">https://query.wikidata.org/sparql</a></p>
+<p>Wikidata does not make use of human-understandable labels. Objects, subjects and predicated are all represented as numeric codes, following either the letter ‘P’ or ‘W’. Named entities such as people, places, organizations and works of art have mostly been assigned a code starting with the letter ‘Q’. The properties all start with a ‘P’.</p>
+<p>You can see an example below.</p>
+<p>SELECT ?work</p>
+<p>WHERE</p>
+<p>{</p>
+<p>?work wdt:P170 wd:Q151803 .</p>
+<p>}</p>
+<p>The property wdt:P170 was created to describe a “maker of this creative work or other object”. wd:Q151803 is the identifier that was assigned to Piet Mondriaan. The query shown in this example requests all the works of art created by the painter Piet Mondriaan. As you can see, the subject is represented as a variable named ?work.</p>
+<p>When you run the code in Wikidata’s SPARQL endpoint, the result will initially consist of numbers only, so this may look slightly disappointing. The identifiers, consisting of random codes, are not highly informative in themselves. Wikidata offers a useful service, however, which you can use to generate human-readable labels for the codes assigned by Wikidata.</p>
+<p>First, you need to add the following line to the query.</p>
+<p><em>SERVICE wikibase</em>:<em>label</em> { bd:serviceParam <em>wikibase</em>:language “en” . }</p>
+<p>After wikibase:language, you can specify the language of the label. Next to “en”, which stands for English, you can also request labels in Dutch (“nl”), German (‘de”’) or French (“fr”).</p>
+<p>Once you have added this specific SERVICE clause, Wikidata creates a second version of all the variables you specify in the WHERE section of the query. The name of this second version of the query will be the name you assigned yourself, with the suffix ‘Label’ as an addition. If you created a variable named ?place, for example, the Wikibase Label service will create a ?placeLabel variable. This variable will contain a textual label associated with the Wikidata identifier.</p>
+<p>SELECT ?work  ?workLabel</p>
+<p>WHERE</p>
+<p>{</p>
+<p>?work wdt:P170 wd:Q151803 .</p>
+<p>SERVICE wikibase:label { bd:serviceParam wikibase:language “en” . }</p>
+<p>}</p>
+<p><strong>Wiki query services</strong></p>
+<p>Since 2015, Wikidata has provided services that can help you build SPARQL queries:</p>
+<p>Query Builder</p>
+<p>One service is called the query builder. It is accessible via <a class="reference external" href="https://query.wikidata.org/querybuilder/">https://query.wikidata.org/querybuilder/</a>. This tool offers a visual interface that can be used to build simple SPARQL queries. Although that this service is limited in making SPARQL queries, it can be helpful if you do not have a lot of experience yet with building SPARQL queries.</p>
+<p><strong>Exercise:</strong></p>
+<ul class="simple">
+<li><p>Use the Wiki Query Builder to find artworks made by Leonardo da Vinci created after 1495.</p></li>
+<li><p>Run the query and look at the results</p></li>
+<li><p>Above the result (at the right top), there is a link to the Query Service. Open this query within the Wiki Query Service,</p></li>
+</ul>
+<p>Answer:
+<img alt="" src="notebooks/RackMultipart20220304-4-1sh5z9x_html_9efbc70768463fff.png" /></p>
+<p>Query Service</p>
+<p>Another service that Wiki offers, is called the query service, this is accessible via <a class="reference external" href="https://query.wikidata.org/">https://query.wikidata.org/</a>.</p>
+<p>The Wikidata Query Service offers opportunities for building SPARQL queries and downloading the requested data in various file formats (including JSON and CSV). It is also possible to view the data in different data visualizations, like a table, a bar chart or a timeline.</p>
+<p><strong>Exercise:</strong></p>
+<ul class="simple">
+<li><p>Use the query that you have built in the previous exercise (artworks made by Leonardo da Vinci created after 1495) and show it in the Wiki Query Service.</p></li>
+<li><p>Change the year into 1505 and the artist in Michelangelo.</p></li>
+<li><p>The standard limit is 100 items, set the limit to 1000.</p></li>
+<li><p>Execute the query ( <img alt="" src="notebooks/RackMultipart20220304-4-1sh5z9x_html_11313ac2302eba8d.png" />or <strong>CTRL + ENTER</strong> ).</p></li>
+<li><p>Go to <strong>Download</strong> at the top right of the results screen and download a CSV file.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+\&amp;lt;https://data.rkd.nl/artists/[56854](https://rkd.nl/nl/explore/artists/56854)\&amp;gt;
+
+\&amp;lt;schema:name\&amp;gt;
+
+&amp;#39;Piet Mondriaan&amp;#39;
+
+In this example, the base URI for schema.org is also replaced with a prefix. This was done to make the URI shorter and more manageable.
+
+The identifier that serves as the subject in this RDF statement (or triple) was assigned by the RKD (Netherlands Institute for Art History). The RDF triple gives information about one of the artists described in their digital archive. More specifically, it states that the entity specified by the identifier (\&amp;lt;https://data.rkd.nl/artists/56854\&amp;gt;) has a name, namely &amp;quot;Piet Mondriaan&amp;quot;. The subject and the object of RDF triples can either be an URI or literal values. In the example above, the URIs are given in angular brackets, and the literals are given in quotes.
+
+
+
+**SPARQL**
+
+Now imagine a situation in which you have received a URI without any further context, such as \&amp;lt;https://data.rkd.nl/artists/32439\&amp;gt;. The identifiers created for the artists in the RKD do not reveal any details about the people that are being identified. In this situation, you would want to know which artist is being identified. We can use SPARQL to find more information about such identifiers. The RDF triple (which reads like an affirmative statement) firstly needs to be transformed into a question. You can do this as follows.
+
+PREFIX rkdo: \&amp;lt;http://data.rkd.nl/def#\&amp;gt;
+
+PREFIX xsd: \&amp;lt;http://www.w3.org/2001/XMLSchema#\&amp;gt;
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+SELECT ?name
+
+WHERE {
+
+\&amp;lt;https://data.rkd.nl/artists/32439\&amp;gt;
+
+schema:name
+
+?name
+
+}
+
+SPARQL queries are similar as regular RDF triples. A significant difference, however, is that certain components are replaced with variables. If you compare the query contained within the curly brackets following WHERE to the full RDF statement that was discussed earlier, you can see that the literal value that was used as a predicate (i.e., the actual name associated with the subject) has been replaced with a variable named ?name.
+
+You are free to choose the name of the variables yourself. In the SPARQL language, variables always start with a question mark. It is advisable to work with meaningful names, such as ?place for places or ?date for dates.
+
+
+SELECT and WHERE
+
+To change a sentence into an actual SPARQL query, you also need to add the keywords SELECT and WHERE. The curly brackets that follow WHERE, contain one or more &amp;#39;incomplete&amp;#39; RDF statements, or statements in which one of the central components (subject, object, and predicate) are replaced with variables. In the example above, the request is to &amp;#39;fill in the blanks&amp;#39;, or, in other words, to find the correct value for the variable.
+
+In the SELECT clause, you specify the variables whose values you would like to see. In this example there is only one variable, namely, ?name. The SPARQL query will return a table. The number of columns will be the same as the number of variables you mention after SELECT. Each value that can be found to complete one of the RDF statements in the WHERE clause will be displayed will generate a new row in this table.
+
+If you run the query above in the RKD SPARQL endpoint, available at https://data.netwerkdigitaalerfgoed.nl/rkd/rkdartists/sparql/rkdartists, the SPARQL engine will then try to complete the query. The values that are found are assigned to the variables. If everything goes well, you will see that the identifier that was supplied is associated with Vincent van Gogh.
+
+This is the basis of working with SPARQL.
+
+
+**Multiple variables**
+
+If you want to see more details for a specific identifier, you can simply add more RDF statements containing variables in the WHERE clause. According to the rules of the SPARQL syntax, each individual RDF triple needs to end in a full stop.
+
+PREFIX rkdo: \&amp;lt;http://data.rkd.nl/def#\&amp;gt;
+
+PREFIX xsd: \&amp;lt;http://www.w3.org/2001/XMLSchema#\&amp;gt;
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+SELECT ?name ?gender ?date\_birth
+
+WHERE {
+
+\&amp;lt;https://data.rkd.nl/artists/32439\&amp;gt; schema:name ?name .
+
+  \&amp;lt;https://data.rkd.nl/artists/32439\&amp;gt; schema:gender ?gender .
+
+\&amp;lt;https://data.rkd.nl/artists/32439\&amp;gt; rkdo:Birth ?birth .
+
+  ?birth schema:startDate ?date\_birth .
+
+}
+
+This query requests the name, the gender and the birth date of the artist identified by the URI that is mentioned. The variable ?date\_birth is slightly confusing at first sight. The property rkdo:Birth initially returns a rkdo:Birth resource. This is a general resource that can describe the details of a specific birth. Such a birth event can be described using a schema:startDate property. To find the actual birth date of Vincent van Gogh in the RKD database, you need to work with these two separate queries.
+
+
+
+LIMIT
+
+Following the principles that have been discussed so far, you can start to build more complicated queries, or queries that produce longer result lists.
+
+The query below, for example, requests the name and the gender of all the artists that are described in the RKD database. It firstly creates a variable named ?id, which represents all the identifiers that are assigned to people. In this example, the SPARQL endpoint will be able to find many potential matches for the ?id variable. For each of the identifiers, it tries to obtain the name and the gender.
+
+PREFIX rkdo: \&amp;lt;http://data.rkd.nl/def#\&amp;gt;
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+SELECT ?id ?name ?gender ?date\_birth ?date\_death
+
+WHERE {
+
+?id a schema:Person .
+
+?id schema:name ?name .
+
+?id schema:gender ?gender. }
+
+LIMIT 100
+
+As you can imagine, this query would return an extensive list of results. When the result consists of several hundreds of items, it may take some time to load. SPARQL endpoints may also produce time-out errors in the case of such long lists of results. To avoid such errors, we can work with the LIMIT keyword, which needs to be followed by a number. Adding such a LIMIT section will have the fact that the length of the result list will not exceed the number that is specified.
+
+
+
+FILTER
+
+You can add a FILTER clause to add some criteria for the results to be displayed. If you do not want to see all the artists, but only those artists that were born in a specific decade (in between 1890 and 1900, for example), you can filter the original result set. The FILTER keyword is followed by a set or parenthesis. Within these parentheses you can add Boolean expressions which define criteria for the variables you work with. To see the artists who were born in the last decade of the 19th century, you can work with the query below.
+
+PREFIX rkdo: \&amp;lt;http://data.rkd.nl/def#\&amp;gt;
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+SELECT ?id ?name ?gender ?date\_birth
+
+WHERE {
+
+?id a schema:Person .
+
+?id schema:name ?name .
+
+?id schema:gender ?gender .
+
+?id rkdo:Birth ?birth .
+
+?birth schema:startDate ?date\_birth .
+
+FILTER ( ?date\_birth \&amp;gt;= &amp;quot;1890-01-01&amp;quot;^^xsd:date &amp;amp;&amp;amp; ?date\_birth \&amp;lt; &amp;quot;1900-01-01&amp;quot;^^xsd:date)
+
+}
+
+
+
+ORDER
+
+The ORDER keyword can be used to arrange the query results. ORDER needs to be included in the query after the closing bracket following WHERE. After ORDER, you can refer to any of the variables you have defined.
+
+PREFIX rkdo: \&amp;lt;http://data.rkd.nl/def#\&amp;gt;
+
+PREFIX xsd: \&amp;lt;http://www.w3.org/2001/XMLSchema#\&amp;gt;
+
+PREFIX schema: \&amp;lt;http://schema.org/\&amp;gt;
+
+SELECT ?id ?name ?gender ?date\_birth
+
+WHERE {
+
+?id a schema:Person .
+
+?id schema:name ?name .
+
+?id schema:gender ?gender .
+
+?id rkdo:Birth ?birth .
+
+?birth schema:startDate ?date\_birth .
+
+FILTER ( ?date\_birth \&amp;gt;= &amp;quot;1890-01-01&amp;quot;^^xsd:date &amp;amp;&amp;amp; ?date\_birth \&amp;lt; &amp;quot;1900-01-01&amp;quot;^^xsd:date)
+
+}
+
+ORDER BY ?name
+
+
+
+**Wikidata**
+
+Wikidata offers access to many of the facts that are listed on Wikipedia as RDF triplets. In other words, Wikidata presents the contents of Wikipedia as structured data. WikiData&amp;#39;s SPARQL Endpoint can be found at [https://query.wikidata.org/sparql](https://query.wikidata.org/sparql)
+
+Wikidata does not make use of human-understandable labels. Objects, subjects and predicated are all represented as numeric codes, following either the letter &amp;#39;P&amp;#39; or &amp;#39;W&amp;#39;. Named entities such as people, places, organizations and works of art have mostly been assigned a code starting with the letter &amp;#39;Q&amp;#39;. The properties all start with a &amp;#39;P&amp;#39;.
+
+You can see an example below.
+
+SELECT ?work
+
+ WHERE
+
+ {
+
+?work wdt:P170 wd:Q151803 .
+
+}
+
+The property wdt:P170 was created to describe a &amp;quot;maker of this creative work or other object&amp;quot;. wd:Q151803 is the identifier that was assigned to Piet Mondriaan. The query shown in this example requests all the works of art created by the painter Piet Mondriaan. As you can see, the subject is represented as a variable named ?work.
+
+When you run the code in Wikidata&amp;#39;s SPARQL endpoint, the result will initially consist of numbers only, so this may look slightly disappointing. The identifiers, consisting of random codes, are not highly informative in themselves. Wikidata offers a useful service, however, which you can use to generate human-readable labels for the codes assigned by Wikidata.
+
+First, you need to add the following line to the query.
+
+_SERVICE wikibase_:_label_ { bd:serviceParam _wikibase_:language &amp;quot;en&amp;quot; . }
+
+After wikibase:language, you can specify the language of the label. Next to &amp;quot;en&amp;quot;, which stands for English, you can also request labels in Dutch (&amp;quot;nl&amp;quot;), German (&amp;#39;de&amp;quot;&amp;#39;) or French (&amp;quot;fr&amp;quot;).
+
+Once you have added this specific SERVICE clause, Wikidata creates a second version of all the variables you specify in the WHERE section of the query. The name of this second version of the query will be the name you assigned yourself, with the suffix &amp;#39;Label&amp;#39; as an addition. If you created a variable named ?place, for example, the Wikibase Label service will create a ?placeLabel variable. This variable will contain a textual label associated with the Wikidata identifier.
+
+SELECT ?work  ?workLabel
+
+WHERE
+
+{
+
+?work wdt:P170 wd:Q151803 .
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language &amp;quot;en&amp;quot; . }
+
+}
+
+
+
+**Wiki query services**
+
+Since 2015, Wikidata has provided services that can help you build SPARQL queries:
+
+Query Builder
+
+One service is called the query builder. It is accessible via [https://query.wikidata.org/querybuilder/](https://query.wikidata.org/querybuilder/). This tool offers a visual interface that can be used to build simple SPARQL queries. Although that this service is limited in making SPARQL queries, it can be helpful if you do not have a lot of experience yet with building SPARQL queries.
+
+
+**Exercise:**
+
+- Use the Wiki Query Builder to find artworks made by Leonardo da Vinci created after 1495.
+- Run the query and look at the results
+- Above the result (at the right top), there is a link to the Query Service. Open this query within the Wiki Query Service,
+
+
+Answer:
+ ![](RackMultipart20220304-4-1sh5z9x_html_9efbc70768463fff.png)
+
+
+Query Service
+
+Another service that Wiki offers, is called the query service, this is accessible via [https://query.wikidata.org/](https://query.wikidata.org/).
+
+The Wikidata Query Service offers opportunities for building SPARQL queries and downloading the requested data in various file formats (including JSON and CSV). It is also possible to view the data in different data visualizations, like a table, a bar chart or a timeline.
+
+**Exercise:**
+
+- Use the query that you have built in the previous exercise (artworks made by Leonardo da Vinci created after 1495) and show it in the Wiki Query Service.
+- Change the year into 1505 and the artist in Michelangelo.
+- The standard limit is 100 items, set the limit to 1000.
+- Execute the query ( ![](RackMultipart20220304-4-1sh5z9x_html_11313ac2302eba8d.png)or **CTRL + ENTER** ).
+- Go to **Download** at the top right of the results screen and download a CSV file.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cdsleiden/python-tutorial",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Module2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Module 2</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peter Verhaar and Ben Companjen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
