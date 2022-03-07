@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 3: SPARQL queries &#8212; Python Tutorial</title>
+    <title>Module 3: SPARQL queries &#8212; LOD tutorial</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Module 2" href="Module2.html" />
+    <link rel="prev" title="Module 2: Creating and publishing LOD" href="Module2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,7 +75,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Python Tutorial</h1>
+      <h1 class="site-logo" id="site-title">LOD tutorial</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -103,7 +103,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Module2.html">
-   Module 2
+   Module 2: Creating and publishing LOD
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -177,13 +177,18 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/cdsleiden/python-tutorial/gh-pages?urlpath=tree/docs/notebooks/Module3.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/peterverhaar/cnch/gh-pages?urlpath=tree/docs/notebooks/Module3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/peterverhaar/cnch/blob/gh-pages/docs/notebooks/Module3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -313,6 +318,8 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="krn-spql"><div class="krn-error"><span class="title">Error:</span> no endpoint defined</div></div></div></div>
 </div>
 <p>In this example, the base URI for <a class="reference external" href="http://schema.org">schema.org</a> is also replaced with a prefix. This was done to make the URI shorter and more manageable.</p>
 <p>The identifier that serves as the subject in this RDF statement (or triple) was assigned by the RKD (Netherlands Institute for Art History). The RDF triple gives information about one of the artists described in their digital archive. More specifically, it states that the entity specified by the identifier (<a class="reference external" href="https://data.rkd.nl/artists/56854">https://data.rkd.nl/artists/56854</a>) has a name, namely “Piet Mondriaan”. The subject and the object of RDF triples can either be an URI or literal values. In the example above, the URIs are given in angular brackets, and the literals are given in quotes.</p>
@@ -336,7 +343,7 @@
 </div>
 </div>
 </div>
-<p>SPARQL queries are similar as regular RDF triples. A significant difference, however, is that certain components are replaced with variables. If you compare the query contained within the curly brackets following WHERE to the full RDF statement that was discussed earlier, you can see that the literal value that was used as a predicate (i.e., the actual name associated with the subject) has been replaced with a variable named ?name.</p>
+<p>SPARQL queries look quite similar to regular RDF triples. A significant difference, however, is that certain components are replaced with variables. If you compare the query contained within the curly brackets following WHERE to the full RDF statement that was discussed earlier, you can see that the literal value that was used as a predicate (i.e., the actual name associated with the subject) has been replaced with a variable named ?name.</p>
 <p>You are free to choose the name of the variables yourself. In the SPARQL language, variables always start with a question mark. It is advisable to work with meaningful names, such as ?place for places or ?date for dates.</p>
 </div>
 <div class="section" id="select-and-where">
@@ -511,7 +518,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "cdsleiden/python-tutorial",
+            repo: "peterverhaar/cnch",
             ref: "gh-pages",
         },
         codeMirrorConfig: {
@@ -536,7 +543,7 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Module 2</p>
+            <p class="prev-next-title">Module 2: Creating and publishing LOD</p>
         </div>
     </a>
 </div>
@@ -547,7 +554,7 @@
     <div class="container">
       <p>
         
-          By Peter Verhaar and Ben Companjen<br/>
+          By Karin de Wild and Peter Verhaar<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
